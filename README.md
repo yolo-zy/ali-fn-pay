@@ -8,6 +8,7 @@
 ## 项目地址
 github:[https://github.com/GreatGod-zy/ali-fn-pay](https://github.com/GreatGod-zy/ali-fn-pay)
 ### 使用库
+
 * [AlipayF2F](https://github.com/Srar/AlipayF2F) - 支付宝
 * [node-tenpay](https://github.com/befinal/node-tenpay) - 微信支付
 
@@ -85,6 +86,7 @@ module.exports.handler = async function (req, resp, context) {
 }
 ```
 ## 参数配置
+参数不明确的或者详细参数可参考相应使用库
 ### 微信支付参数
 ```javascript
 //配置参数
@@ -92,7 +94,7 @@ const config = {
   appid: '公众号ID',
   mchid: '微信商户号',
   partnerKey: '微信支付安全密钥',
-  pfx: require('fs').readFileSync('证书文件路径'),//可省略
+  pfx: require('fs').readFileSync('证书文件路径'),
   notify_url: '支付回调网址',
   spbill_create_ip: 'IP地址'
 };
@@ -147,19 +149,46 @@ const data={
     timeExpress: 5       // 可选 支付超时, 默认为5分钟
 }
 ```
-
-
  
     
 ## 项目运行
     git clone https://github.com/GreatGod-zy/ali-fn-pay.git
     cd ali-fn-pay
     npm install 或 cnpm install
+
     
-    登录阿里云选择函数计算创建函数，选择文件上传，将你的项目文件夹上传到刚创建的函数里
-    创建http触发器，请求触发器
+登录阿里云选择函数计算创建函数，选择文件上传，将你的项目文件夹上传到刚创建的函数里
+    
+创建http触发器，请求触发器
 
 ![avatar](http://img.precip.cn/ali1.png)
+
+请求http触发器https://******/WeChatPay/?action=wechatpay
+
+```javascript
+// key和签名方式克隆后修改
+let key="as478w4aDF54WDFSf54f123fdSD56feFD";
+let config=Base44.encode(JSON.stringify(config));
+let data=Base44.encode(JSON.stringify(data));
+let sign=md5(key+config+data);
+
+$.ajax({
+    url:'https://******/WeChatPay/?action=wechatpay',//地址
+    type:'post',
+    data:{
+        config:config,
+        data:data,
+        sign:sign
+    }
+    success:function(res){
+        console.log(res)
+    },
+    error:function(err){
+        console.log(err)
+    }
+})
+
+```
 
     
 
