@@ -1,7 +1,7 @@
 {
-  "name": "tenpay",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ali-fn-pay",
+  "version": "0.0.2",
+  "description": "阿里云函数计算聚合微信支付宝支付",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
