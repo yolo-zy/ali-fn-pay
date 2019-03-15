@@ -6,16 +6,16 @@ var getFormBody = require("body/form");
 var md5 = require('md5');
 var path = require('path');
 //公共参数处理
-var parse_signed_req = require(path.resolve("./parse_signed_req"));
+var parse_signed_req = require(path.resolve("./plugins/parse_signed_req"));
 
 //微信支付
-var WeChatPay = require(path.resolve("./WeChatPay"));
+var WeChatPay = require(path.resolve("./WeChart/WeChatPay"));
 //微信查单
-var WeChatOrder = require(path.resolve("./WeChatOrder"));
+var WeChatOrder = require(path.resolve("./WeChart/WeChatOrder"));
 //支付宝支付
-var AliPay = require(path.resolve("./AliPay"));
+var AliPay = require(path.resolve("./Ali/AliPay"));
 //支付宝查单
-var AliPayOrder = require(path.resolve("./AliPayOrder"));
+var AliPayOrder = require(path.resolve("./Ali/AliPayOrder"));
 
 //返回结果
 var result = {};

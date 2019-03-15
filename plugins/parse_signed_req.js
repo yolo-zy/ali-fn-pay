@@ -1,7 +1,7 @@
 //签名
 var path = require('path');
 var signature = require(path.resolve('./signature'));
-// var base64 = require(path.resolve('./base64'));
+// var base64 = require('base64');
 
 function parse_signed_req(req, body,resp) {
     var bodys = body;
@@ -16,6 +16,7 @@ function parse_signed_req(req, body,resp) {
     sign2=sign2.toUpperCase();
     
     if (sign == sign2) {
+        //正常情况直接使用base64就可以，但函数计算获取不到模块，所以使用了Buffer
         var config =JSON.parse(new Buffer(configs, 'base64').toString('ascii'));
         var data = JSON.parse(new Buffer(datas, 'base64').toString('ascii'));
         return params = {

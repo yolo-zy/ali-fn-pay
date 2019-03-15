@@ -194,12 +194,16 @@ $.ajax({
 
 ## 待解决问题
 
+- 直接生成二维码还未解决，在阿里云上获取不到qr-image模块
+- 正常情况直接使用base64就可以，但函数计算获取不到模块，所以使用了Buffer
+
+        var config =JSON.parse(new Buffer(configs, 'base64').toString('ascii'));
+        var data = JSON.parse(new Buffer(datas, 'base64').toString('ascii'));
+
+- 异常处理不完善
 
 
-## 后续功能
 
 
-
-## 最后
 
 

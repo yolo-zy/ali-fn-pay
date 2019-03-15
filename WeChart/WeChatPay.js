@@ -4,7 +4,7 @@ var tenpay = require('tenpay');
 var path = require('path');
 
 //生成二维码
-//var qrImg = require(path.resolve("./qrImg"));
+//var qrImg = require(path.resolve("../plugins/qrImg"));
 
 /**
  *统一处理所有支付
