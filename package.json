@@ -18,7 +18,7 @@
     "netmask": ">=2.0.1"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "js-base64": "^2.5.1"
   }
 }
